@@ -1,0 +1,37 @@
+<mvc:View
+   controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <List
+      id="invoiceList"
+      headerText="{i18n>invoiceListTitle}"
+      class="sapUiResponsiveMargin"
+      width="auto"
+      items="{
+         path : 'invoice>/Invoices',
+         sorter : {
+            path : 'Category' 
+         }
+      }" >
+      <headerToolbar>
+         <Toolbar>
+            <Title  text="{i18n>invoiceListTitle}"/>
+            
+            <ToolbarSpacer/>
+            <SearchField width="50%" search=".onFilterInvoices"/>
+         </Toolbar>
+      </headerToolbar>
+      <items>
+         <ObjectListItem class="dir"
+            title="{invoice>ProductId}"   
+            text="{invoice>Description}"
+            number="{invoice>Price} "
+            numberUnit="{invoice>CurrencyCode}"
+            icon="{invoice>ProductPicUrl}">
+            <ObjectAttribute text="{invoice>Description}" />
+         </ObjectListItem>
+
+            
+            </items>
+   </List>
+</mvc:View>
